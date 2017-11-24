@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TourModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTDD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENDIADIEM" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDDD" Type="int" Nullable="false" />
+          <Property Name="MATP" Type="nchar" MaxLength="10" />
+          <Property Name="TENTP_NUOC" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DATTOUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDKH" Type="int" Nullable="false" />
+          <Property Name="IDDOAN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIADIEM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENCACDIADIEM" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENDOAN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDTOUR" Type="int" Nullable="false" />
+          <Property Name="NGAYBD" Type="date" Nullable="false" />
+          <Property Name="NGAYKT" Type="date" Nullable="false" />
+          <Property Name="CHITIET" Type="text" Nullable="false" />
+          <Property Name="CHIPHI" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HOTEN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CMND" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="GIOITINH" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DIACHI" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DT" Type="nchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HOTEN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TENDN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MK" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NHIEMVU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NOIDUNG" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PHANCONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDOAN" Type="int" Nullable="false" />
+          <Property Name="IDNV" Type="int" Nullable="false" />
+          <Property Name="IDNHV" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TENTOUR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDDIADIEM" Type="int" Nullable="false" />
+          <Property Name="DACDIEM" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GIATOUR" Type="int" Nullable="false" />
+          <Property Name="LOAIHINH" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CTDD__IDDD__20C1E124">
+          <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="1" />
+          <End Role="CTDD" Type="Self.CTDD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIADIEM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CTDD">
+              <PropertyRef Name="IDDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DATTOUR__IDDOAN__21B6055D">
+          <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
+          <End Role="DATTOUR" Type="Self.DATTOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DATTOUR">
+              <PropertyRef Name="IDDOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DATTOUR__IDKH__22AA2996">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DATTOUR" Type="Self.DATTOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DATTOUR">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOAN__IDTOUR__239E4DCF">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+          <End Role="DOAN" Type="Self.DOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOAN">
+              <PropertyRef Name="IDTOUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__IDDOAN__24927208">
+          <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="IDDOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__IDNV__267ABA7A">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__IDNHV__25869641">
+          <End Role="NHIEMVU" Type="Self.NHIEMVU" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHIEMVU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="IDNHV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TOUR__IDDIADIEM__276EDEB3">
+          <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="1" />
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIADIEM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TOUR">
+              <PropertyRef Name="IDDIADIEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TourModelStoreContainer">
+          <EntitySet Name="CTDD" EntityType="Self.CTDD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DATTOUR" EntityType="Self.DATTOUR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIADIEM" EntityType="Self.DIADIEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOAN" EntityType="Self.DOAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHIEMVU" EntityType="Self.NHIEMVU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHANCONG" EntityType="Self.PHANCONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CTDD__IDDD__20C1E124" Association="Self.FK__CTDD__IDDD__20C1E124">
+            <End Role="DIADIEM" EntitySet="DIADIEM" />
+            <End Role="CTDD" EntitySet="CTDD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DATTOUR__IDDOAN__21B6055D" Association="Self.FK__DATTOUR__IDDOAN__21B6055D">
+            <End Role="DOAN" EntitySet="DOAN" />
+            <End Role="DATTOUR" EntitySet="DATTOUR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DATTOUR__IDKH__22AA2996" Association="Self.FK__DATTOUR__IDKH__22AA2996">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DATTOUR" EntitySet="DATTOUR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOAN__IDTOUR__239E4DCF" Association="Self.FK__DOAN__IDTOUR__239E4DCF">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="DOAN" EntitySet="DOAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__IDDOAN__24927208" Association="Self.FK__PHANCONG__IDDOAN__24927208">
+            <End Role="DOAN" EntitySet="DOAN" />
+            <End Role="PHANCONG" EntitySet="PHANCONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__IDNV__267ABA7A" Association="Self.FK__PHANCONG__IDNV__267ABA7A">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="PHANCONG" EntitySet="PHANCONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__IDNHV__25869641" Association="Self.FK__PHANCONG__IDNHV__25869641">
+            <End Role="NHIEMVU" EntitySet="NHIEMVU" />
+            <End Role="PHANCONG" EntitySet="PHANCONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TOUR__IDDIADIEM__276EDEB3" Association="Self.FK__TOUR__IDDIADIEM__276EDEB3">
+            <End Role="DIADIEM" EntitySet="DIADIEM" />
+            <End Role="TOUR" EntitySet="TOUR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TourModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CTDD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENDIADIEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDDD" Type="Int32" Nullable="false" />
+          <Property Name="MATP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TENTP_NUOC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DIADIEM" Relationship="Self.FK__CTDD__IDDD__20C1E124" FromRole="CTDD" ToRole="DIADIEM" />
+        </EntityType>
+        <EntityType Name="DATTOUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDKH" Type="Int32" Nullable="false" />
+          <Property Name="IDDOAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DOAN" Relationship="Self.FK__DATTOUR__IDDOAN__21B6055D" FromRole="DATTOUR" ToRole="DOAN" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DATTOUR__IDKH__22AA2996" FromRole="DATTOUR" ToRole="KHACHHANG" />
+        </EntityType>
+        <EntityType Name="DIADIEM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENCACDIADIEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CTDDs" Relationship="Self.FK__CTDD__IDDD__20C1E124" FromRole="DIADIEM" ToRole="CTDD" />
+          <NavigationProperty Name="TOURs" Relationship="Self.FK__TOUR__IDDIADIEM__276EDEB3" FromRole="DIADIEM" ToRole="TOUR" />
+        </EntityType>
+        <EntityType Name="DOAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENDOAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDTOUR" Type="Int32" Nullable="false" />
+          <Property Name="NGAYBD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAYKT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CHITIET" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CHIPHI" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DATTOURs" Relationship="Self.FK__DATTOUR__IDDOAN__21B6055D" FromRole="DOAN" ToRole="DATTOUR" />
+          <NavigationProperty Name="TOUR" Relationship="Self.FK__DOAN__IDTOUR__239E4DCF" FromRole="DOAN" ToRole="TOUR" />
+          <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__IDDOAN__24927208" FromRole="DOAN" ToRole="PHANCONG" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOTEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CMND" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DT" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DATTOURs" Relationship="Self.FK__DATTOUR__IDKH__22AA2996" FromRole="KHACHHANG" ToRole="DATTOUR" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOTEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TENDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__IDNV__267ABA7A" FromRole="NHANVIEN" ToRole="PHANCONG" />
+        </EntityType>
+        <EntityType Name="NHIEMVU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__IDNHV__25869641" FromRole="NHIEMVU" ToRole="PHANCONG" />
+        </EntityType>
+        <EntityType Name="PHANCONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDOAN" Type="Int32" Nullable="false" />
+          <Property Name="IDNV" Type="Int32" Nullable="false" />
+          <Property Name="IDNHV" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DOAN" Relationship="Self.FK__PHANCONG__IDDOAN__24927208" FromRole="PHANCONG" ToRole="DOAN" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__PHANCONG__IDNV__267ABA7A" FromRole="PHANCONG" ToRole="NHANVIEN" />
+          <NavigationProperty Name="NHIEMVU" Relationship="Self.FK__PHANCONG__IDNHV__25869641" FromRole="PHANCONG" ToRole="NHIEMVU" />
+        </EntityType>
+        <EntityType Name="TOUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TENTOUR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDDIADIEM" Type="Int32" Nullable="false" />
+          <Property Name="DACDIEM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIATOUR" Type="Int32" Nullable="false" />
+          <Property Name="LOAIHINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DIADIEM" Relationship="Self.FK__TOUR__IDDIADIEM__276EDEB3" FromRole="TOUR" ToRole="DIADIEM" />
+          <NavigationProperty Name="DOANs" Relationship="Self.FK__DOAN__IDTOUR__239E4DCF" FromRole="TOUR" ToRole="DOAN" />
+        </EntityType>
+        <Association Name="FK__CTDD__IDDD__20C1E124">
+          <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="1" />
+          <End Role="CTDD" Type="Self.CTDD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIADIEM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CTDD">
+              <PropertyRef Name="IDDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DATTOUR__IDDOAN__21B6055D">
+          <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
+          <End Role="DATTOUR" Type="Self.DATTOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DATTOUR">
+              <PropertyRef Name="IDDOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DATTOUR__IDKH__22AA2996">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DATTOUR" Type="Self.DATTOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DATTOUR">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TOUR__IDDIADIEM__276EDEB3">
+          <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="1" />
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIADIEM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TOUR">
+              <PropertyRef Name="IDDIADIEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOAN__IDTOUR__239E4DCF">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+          <End Role="DOAN" Type="Self.DOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOAN">
+              <PropertyRef Name="IDTOUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__IDDOAN__24927208">
+          <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="IDDOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__IDNV__267ABA7A">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__IDNHV__25869641">
+          <End Role="NHIEMVU" Type="Self.NHIEMVU" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHIEMVU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="IDNHV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TourEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CTDDs" EntityType="Self.CTDD" />
+          <EntitySet Name="DATTOURs" EntityType="Self.DATTOUR" />
+          <EntitySet Name="DIADIEMs" EntityType="Self.DIADIEM" />
+          <EntitySet Name="DOANs" EntityType="Self.DOAN" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+          <EntitySet Name="NHIEMVUs" EntityType="Self.NHIEMVU" />
+          <EntitySet Name="PHANCONGs" EntityType="Self.PHANCONG" />
+          <EntitySet Name="TOURs" EntityType="Self.TOUR" />
+          <AssociationSet Name="FK__CTDD__IDDD__20C1E124" Association="Self.FK__CTDD__IDDD__20C1E124">
+            <End Role="DIADIEM" EntitySet="DIADIEMs" />
+            <End Role="CTDD" EntitySet="CTDDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DATTOUR__IDDOAN__21B6055D" Association="Self.FK__DATTOUR__IDDOAN__21B6055D">
+            <End Role="DOAN" EntitySet="DOANs" />
+            <End Role="DATTOUR" EntitySet="DATTOURs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DATTOUR__IDKH__22AA2996" Association="Self.FK__DATTOUR__IDKH__22AA2996">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="DATTOUR" EntitySet="DATTOURs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TOUR__IDDIADIEM__276EDEB3" Association="Self.FK__TOUR__IDDIADIEM__276EDEB3">
+            <End Role="DIADIEM" EntitySet="DIADIEMs" />
+            <End Role="TOUR" EntitySet="TOURs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOAN__IDTOUR__239E4DCF" Association="Self.FK__DOAN__IDTOUR__239E4DCF">
+            <End Role="TOUR" EntitySet="TOURs" />
+            <End Role="DOAN" EntitySet="DOANs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__IDDOAN__24927208" Association="Self.FK__PHANCONG__IDDOAN__24927208">
+            <End Role="DOAN" EntitySet="DOANs" />
+            <End Role="PHANCONG" EntitySet="PHANCONGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__IDNV__267ABA7A" Association="Self.FK__PHANCONG__IDNV__267ABA7A">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="PHANCONG" EntitySet="PHANCONGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__IDNHV__25869641" Association="Self.FK__PHANCONG__IDNHV__25869641">
+            <End Role="NHIEMVU" EntitySet="NHIEMVUs" />
+            <End Role="PHANCONG" EntitySet="PHANCONGs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TourModelStoreContainer" CdmEntityContainer="TourEntities">
+          <EntitySetMapping Name="CTDDs">
+            <EntityTypeMapping TypeName="TourModel.CTDD">
+              <MappingFragment StoreEntitySet="CTDD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TENDIADIEM" ColumnName="TENDIADIEM" />
+                <ScalarProperty Name="IDDD" ColumnName="IDDD" />
+                <ScalarProperty Name="MATP" ColumnName="MATP" />
+                <ScalarProperty Name="TENTP_NUOC" ColumnName="TENTP_NUOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DATTOURs">
+            <EntityTypeMapping TypeName="TourModel.DATTOUR">
+              <MappingFragment StoreEntitySet="DATTOUR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+                <ScalarProperty Name="IDDOAN" ColumnName="IDDOAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIADIEMs">
+            <EntityTypeMapping TypeName="TourModel.DIADIEM">
+              <MappingFragment StoreEntitySet="DIADIEM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TENCACDIADIEM" ColumnName="TENCACDIADIEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOANs">
+            <EntityTypeMapping TypeName="TourModel.DOAN">
+              <MappingFragment StoreEntitySet="DOAN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TENDOAN" ColumnName="TENDOAN" />
+                <ScalarProperty Name="IDTOUR" ColumnName="IDTOUR" />
+                <ScalarProperty Name="NGAYBD" ColumnName="NGAYBD" />
+                <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+                <ScalarProperty Name="CHITIET" ColumnName="CHITIET" />
+                <ScalarProperty Name="CHIPHI" ColumnName="CHIPHI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="TourModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="DT" ColumnName="DT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="TourModel.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+                <ScalarProperty Name="MK" ColumnName="MK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHIEMVUs">
+            <EntityTypeMapping TypeName="TourModel.NHIEMVU">
+              <MappingFragment StoreEntitySet="NHIEMVU">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHANCONGs">
+            <EntityTypeMapping TypeName="TourModel.PHANCONG">
+              <MappingFragment StoreEntitySet="PHANCONG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDDOAN" ColumnName="IDDOAN" />
+                <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+                <ScalarProperty Name="IDNHV" ColumnName="IDNHV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOURs">
+            <EntityTypeMapping TypeName="TourModel.TOUR">
+              <MappingFragment StoreEntitySet="TOUR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TENTOUR" ColumnName="TENTOUR" />
+                <ScalarProperty Name="IDDIADIEM" ColumnName="IDDIADIEM" />
+                <ScalarProperty Name="DACDIEM" ColumnName="DACDIEM" />
+                <ScalarProperty Name="GIATOUR" ColumnName="GIATOUR" />
+                <ScalarProperty Name="LOAIHINH" ColumnName="LOAIHINH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
