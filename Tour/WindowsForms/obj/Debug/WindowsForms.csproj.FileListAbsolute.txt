@@ -1,1 +1,2 @@
 D:\GitHub\Tour\WindowsForms\bin\Debug\WindowsForms.exe.config
+D:\GitHub\qltour\Tour\WindowsForms\bin\Debug\WindowsForms.exe.config
