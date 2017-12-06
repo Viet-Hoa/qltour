@@ -45,5 +45,15 @@ namespace Core.DAO
             }
             return dt;
         }
+        public static void them(TOUR t)
+        {
+            db.TOURs.Add(t);
+            db.SaveChanges();
+        }
+        public static void sua(TOUR t)
+        {
+            db.Entry(t).State = EntityState.Modified;
+            db.SaveChanges();
+        }
     }
 }

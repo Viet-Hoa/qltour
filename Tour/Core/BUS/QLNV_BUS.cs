@@ -22,5 +22,29 @@ namespace Core.BUS
         {
             return DAO.QLNV.demtour(id, tu, den);
         }
+        public static int them(PHANCONG p)
+        {
+            try
+            {
+                DAO.QLNV.them(p);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        public static int sua(PHANCONG p)
+        {
+            try
+            {
+                DAO.QLNV.sua(p);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }

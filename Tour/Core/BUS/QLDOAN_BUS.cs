@@ -18,5 +18,53 @@ namespace Core.BUS
         {
             return DAO.QLDOAN.load(id);
         }
+        public static int them(DOAN d)
+        {
+            try
+            {
+                DAO.QLDOAN.them(d);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        public static int sua(DOAN d)
+        {
+            try
+            {
+                DAO.QLDOAN.sua(d);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        public static int them(DATTOUR dt)
+        {
+            try
+            {
+                DAO.QLDOAN.them(dt);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        public static int sua(DATTOUR dt)
+        {
+            try
+            {
+                DAO.QLDOAN.sua(dt);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }

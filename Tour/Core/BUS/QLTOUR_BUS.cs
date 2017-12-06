@@ -33,6 +33,29 @@ namespace Core.BUS
         {
             return thu - chi;
         }
-
+        public static int them(TOUR t)
+        {
+            try
+            {
+                DAO.QLTOUR.them(t);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        public static int sua(TOUR t)
+        {
+            try
+            {
+                DAO.QLTOUR.sua(t);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }

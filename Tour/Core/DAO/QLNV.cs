@@ -24,5 +24,15 @@ namespace Core.DAO
             var dt = db.PHANCONGs.Include(s => s.DOAN).Where(s => s.IDNV == id && s.DOAN.NGAYBD >= tu && s.DOAN.NGAYKT <= den).ToList();
             return dt.Count;
         }
+        public static void them(PHANCONG pc)
+        {
+            db.PHANCONGs.Add(pc);
+            db.SaveChanges();
+        }
+        public static void sua(PHANCONG pc)
+        {
+            db.Entry(pc).State = EntityState.Modified;
+            db.SaveChanges();
+        }
     }
 }
