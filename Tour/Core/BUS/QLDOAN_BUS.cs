@@ -66,5 +66,14 @@ namespace Core.BUS
                 return 0;
             }
         }
+        public static void xoa(int id)
+        {
+            DAO.QLDOAN.xoa(id);
+        }
+        public static DOAN findd(int id)
+        {
+            return DAO.QLDOAN.findd(id);
+        }
+        
     }
 }

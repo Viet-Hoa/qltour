@@ -39,5 +39,15 @@ namespace Core.DAO
             db.Entry(dt).State = EntityState.Modified;
             db.SaveChanges();
         }
+        public static void xoa(int id)
+        {
+            var dt = db.DATTOURs.Find(id);
+            db.DATTOURs.Remove(dt);
+            db.SaveChanges();
+        }
+        public static DOAN findd(int id)
+        {
+            return db.DOANs.Find(id);
+        }
     }
 }

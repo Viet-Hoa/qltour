@@ -65,9 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\QLKHACH_BUS.cs" />
     <Compile Include="BUS\QLDOAN_BUS.cs" />
     <Compile Include="BUS\QLNV_BUS.cs" />
     <Compile Include="BUS\QLTOUR_BUS.cs" />
+    <Compile Include="DAO\QLKHACH.cs" />
     <Compile Include="DAO\QLDOAN.cs" />
     <Compile Include="DAO\QLNV.cs" />
     <Compile Include="DAO\QLTOUR.cs" />
