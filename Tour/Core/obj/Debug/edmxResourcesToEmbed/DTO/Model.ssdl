@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="tour_dlModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="TourModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="CTDD">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENDIADIEM" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IDDD" Type="int" Nullable="false" />
-    <Property Name="MATP" Type="nchar" MaxLength="10" />
-    <Property Name="TENTP_NUOC" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="MATP" Type="nvarchar" MaxLength="10" />
+    <Property Name="TENTP_NUOC" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="DATTOUR">
     <Key>
@@ -23,7 +22,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TENCACDIADIEM" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDTOUR" Type="int" Nullable="false" />
+    <Property Name="IDDD" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DOAN">
     <Key>
@@ -80,24 +80,11 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TENTOUR" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IDDIADIEM" Type="int" Nullable="false" />
     <Property Name="DACDIEM" Type="nvarchar(max)" Nullable="false" />
     <Property Name="GIATOUR" Type="int" Nullable="false" />
     <Property Name="LOAIHINH" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="FK__CTDD__IDDD__25869641">
-    <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="1" />
-    <End Role="CTDD" Type="Self.CTDD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DIADIEM">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="CTDD">
-        <PropertyRef Name="IDDD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__DATTOUR__IDDOAN__276EDEB3">
+  <Association Name="FK__DATTOUR__IDDOAN__1ED998B2">
     <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
     <End Role="DATTOUR" Type="Self.DATTOUR" Multiplicity="*" />
     <ReferentialConstraint>
@@ -109,7 +96,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DATTOUR__IDKH__267ABA7A">
+  <Association Name="FK__DATTOUR__IDKH__1FCDBCEB">
     <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
     <End Role="DATTOUR" Type="Self.DATTOUR" Multiplicity="*" />
     <ReferentialConstraint>
@@ -121,7 +108,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DOAN__IDTOUR__29572725">
+  <Association Name="FK__DIADIEM__IDDD__30F848ED">
+    <End Role="CTDD" Type="Self.CTDD" Multiplicity="1" />
+    <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTDD">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIADIEM">
+        <PropertyRef Name="IDDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIADIEM__IDTOUR__31EC6D26">
+    <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+    <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DIADIEM">
+        <PropertyRef Name="IDTOUR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DOAN__IDTOUR__20C1E124">
     <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
     <End Role="DOAN" Type="Self.DOAN" Multiplicity="*" />
     <ReferentialConstraint>
@@ -133,7 +144,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHANCONG__IDDOAN__5BE2A6F2">
+  <Association Name="FK__PHANCONG__IDDOAN__21B6055D">
     <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
     <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -145,7 +156,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHANCONG__IDNV__5DCAEF64">
+  <Association Name="FK__PHANCONG__IDNV__239E4DCF">
     <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
     <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -157,7 +168,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHANCONG__IDNHV__5CD6CB2B">
+  <Association Name="FK__PHANCONG__IDNHV__22AA2996">
     <End Role="NHIEMVU" Type="Self.NHIEMVU" Multiplicity="1" />
     <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
     <ReferentialConstraint>
@@ -169,19 +180,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TOUR__IDDIADIEM__47DBAE45">
-    <End Role="DIADIEM" Type="Self.DIADIEM" Multiplicity="1" />
-    <End Role="TOUR" Type="Self.TOUR" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DIADIEM">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TOUR">
-        <PropertyRef Name="IDDIADIEM" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="tour_dlModelStoreContainer">
+  <EntityContainer Name="TourModelStoreContainer">
     <EntitySet Name="CTDD" EntityType="Self.CTDD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DATTOUR" EntityType="Self.DATTOUR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DIADIEM" EntityType="Self.DIADIEM" Schema="dbo" store:Type="Tables" />
@@ -191,37 +190,37 @@
     <EntitySet Name="NHIEMVU" EntityType="Self.NHIEMVU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHANCONG" EntityType="Self.PHANCONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__CTDD__IDDD__25869641" Association="Self.FK__CTDD__IDDD__25869641">
-      <End Role="DIADIEM" EntitySet="DIADIEM" />
-      <End Role="CTDD" EntitySet="CTDD" />
-    </AssociationSet>
-    <AssociationSet Name="FK__DATTOUR__IDDOAN__276EDEB3" Association="Self.FK__DATTOUR__IDDOAN__276EDEB3">
+    <AssociationSet Name="FK__DATTOUR__IDDOAN__1ED998B2" Association="Self.FK__DATTOUR__IDDOAN__1ED998B2">
       <End Role="DOAN" EntitySet="DOAN" />
       <End Role="DATTOUR" EntitySet="DATTOUR" />
     </AssociationSet>
-    <AssociationSet Name="FK__DATTOUR__IDKH__267ABA7A" Association="Self.FK__DATTOUR__IDKH__267ABA7A">
+    <AssociationSet Name="FK__DATTOUR__IDKH__1FCDBCEB" Association="Self.FK__DATTOUR__IDKH__1FCDBCEB">
       <End Role="KHACHHANG" EntitySet="KHACHHANG" />
       <End Role="DATTOUR" EntitySet="DATTOUR" />
     </AssociationSet>
-    <AssociationSet Name="FK__DOAN__IDTOUR__29572725" Association="Self.FK__DOAN__IDTOUR__29572725">
+    <AssociationSet Name="FK__DIADIEM__IDDD__30F848ED" Association="Self.FK__DIADIEM__IDDD__30F848ED">
+      <End Role="CTDD" EntitySet="CTDD" />
+      <End Role="DIADIEM" EntitySet="DIADIEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIADIEM__IDTOUR__31EC6D26" Association="Self.FK__DIADIEM__IDTOUR__31EC6D26">
+      <End Role="TOUR" EntitySet="TOUR" />
+      <End Role="DIADIEM" EntitySet="DIADIEM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DOAN__IDTOUR__20C1E124" Association="Self.FK__DOAN__IDTOUR__20C1E124">
       <End Role="TOUR" EntitySet="TOUR" />
       <End Role="DOAN" EntitySet="DOAN" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHANCONG__IDDOAN__5BE2A6F2" Association="Self.FK__PHANCONG__IDDOAN__5BE2A6F2">
+    <AssociationSet Name="FK__PHANCONG__IDDOAN__21B6055D" Association="Self.FK__PHANCONG__IDDOAN__21B6055D">
       <End Role="DOAN" EntitySet="DOAN" />
       <End Role="PHANCONG" EntitySet="PHANCONG" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHANCONG__IDNV__5DCAEF64" Association="Self.FK__PHANCONG__IDNV__5DCAEF64">
+    <AssociationSet Name="FK__PHANCONG__IDNV__239E4DCF" Association="Self.FK__PHANCONG__IDNV__239E4DCF">
       <End Role="NHANVIEN" EntitySet="NHANVIEN" />
       <End Role="PHANCONG" EntitySet="PHANCONG" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHANCONG__IDNHV__5CD6CB2B" Association="Self.FK__PHANCONG__IDNHV__5CD6CB2B">
+    <AssociationSet Name="FK__PHANCONG__IDNHV__22AA2996" Association="Self.FK__PHANCONG__IDNHV__22AA2996">
       <End Role="NHIEMVU" EntitySet="NHIEMVU" />
       <End Role="PHANCONG" EntitySet="PHANCONG" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TOUR__IDDIADIEM__47DBAE45" Association="Self.FK__TOUR__IDDIADIEM__47DBAE45">
-      <End Role="DIADIEM" EntitySet="DIADIEM" />
-      <End Role="TOUR" EntitySet="TOUR" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

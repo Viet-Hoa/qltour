@@ -119,6 +119,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\QLNVController.cs" />
     <Compile Include="Controllers\QLDoanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,6 +211,12 @@
     <Content Include="Views\QLDoan\Add.cshtml" />
     <Content Include="Views\QLDoan\Delete.cshtml" />
     <Content Include="Views\QLDoan\Edit.cshtml" />
+    <Content Include="Views\QLNV\Index.cshtml" />
+    <Content Include="Views\QLNV\Create.cshtml" />
+    <Content Include="Views\QLNV\List.cshtml" />
+    <Content Include="Views\QLNV\Add.cshtml" />
+    <Content Include="Views\QLNV\Edit.cshtml" />
+    <Content Include="Views\QLNV\Thongke.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

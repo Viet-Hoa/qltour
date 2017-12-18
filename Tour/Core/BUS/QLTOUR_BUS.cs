@@ -59,5 +59,22 @@ namespace Core.BUS
                 return 0;
             }
         }
+        public static int them(DIADIEM d)
+        {
+            try
+            {
+                DAO.QLTOUR.them(d);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
+        public static void xoa(int id)
+        {
+            DAO.QLTOUR.xoa(id);
+        }
     }
 }

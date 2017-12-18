@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Core.DTO.PHANCONG>
+
+@{
+    ViewBag.Title = "List";
+    Core.DTO.NHANVIEN nv = ViewBag.nv;
+    int st = ViewBag.st;
+}
+
+<h2>Chi tiết nhân viên</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Họ tên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => nv.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tên đăng nhập")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => nv.TENDN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mật khẩu")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(x => nv.MK)
+        </dd>
+
+    </dl>
+</div>
+<h2>Số tour tham gia trong 30 ngày trước: @st</h2>
+<br />
+<h2>Danh sách phân công</h2>
+<p>
+    @Html.ActionLink("Thêm", "Add", new { id = nv.ID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Đoàn
+        </th>
+        <th>
+            Nhiệm vụ
+        </th>
+        <th>
+            Ngày bắt đầu
+        </th>
+        <th>
+            Ngày kết thúc
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOAN.TENDOAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHIEMVU.TENNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOAN.NGAYBD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOAN.NGAYKT)
+            </td>
+
+        </tr>
+    }
+
+</table>
+<br />
+<h2>Số tour tham gia trong 30 ngày trước: @st</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<table class="table">
+    <tr>
+        <td>
+            @Html.Label("Từ ngày", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("tu", new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessage("tu", new { @class = "text-danger" })
+            </div>
+        </td>
+        <td>
+            @Html.Label("Đến ngày", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("den", new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessage("den", new { @class = "text-danger" })
+            </div>
+            @Html.Hidden("ma",nv.ID)
+        </td>
+        <td><input type="submit" value="Thống kê" class="btn btn-default" /></td>
+    </tr>
+</table>
+}
+    <br />
+    <p>
+        @Html.ActionLink("Về", "Index")
+    </p>

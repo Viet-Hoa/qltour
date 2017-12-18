@@ -55,5 +55,16 @@ namespace Core.DAO
             db.Entry(t).State = EntityState.Modified;
             db.SaveChanges();
         }
+        public static void them(DIADIEM dd)
+        {
+            db.DIADIEMs.Add(dd);
+            db.SaveChanges();
+        }
+        public static void xoa(int id)
+        {
+            var x = db.DIADIEMs.Find(id);
+            db.DIADIEMs.Remove(x);
+            db.SaveChanges();
+        }
     }
 }

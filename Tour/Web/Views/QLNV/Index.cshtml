@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Core.DTO.NHANVIEN>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Tên đăng nhập
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOTEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENDN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MK)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Chitiết", "List", new { id=item.ID }) 
+        </td>
+    </tr>
+}
+
+</table>

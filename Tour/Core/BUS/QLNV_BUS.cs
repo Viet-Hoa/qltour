@@ -18,9 +18,26 @@ namespace Core.BUS
         {
             return DAO.QLNV.load(id);
         }
+        public static List<NHIEMVU> loadnv()
+        {
+            return DAO.QLNV.loadnv();
+        }
         public static int demtour(int id, DateTime tu, DateTime den)
         {
             return DAO.QLNV.demtour(id, tu, den);
+        }
+        public static int them(NHANVIEN nv)
+        {
+            try
+            {
+                DAO.QLNV.them(nv);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
         }
         public static int them(PHANCONG p)
         {
@@ -35,11 +52,11 @@ namespace Core.BUS
                 return 0;
             }
         }
-        public static int sua(PHANCONG p)
+        public static int sua(NHANVIEN nv)
         {
             try
             {
-                DAO.QLNV.sua(p);
+                DAO.QLNV.sua(nv);
                 return 1;
             }
             catch (Exception ex)
@@ -47,6 +64,10 @@ namespace Core.BUS
                 Console.WriteLine(ex.Message);
                 return 0;
             }
+        }
+        public static NHANVIEN findnv(int id)
+        {
+            return DAO.QLNV.findnv(id);
         }
     }
 }

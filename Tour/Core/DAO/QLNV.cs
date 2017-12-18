@@ -15,9 +15,20 @@ namespace Core.DAO
         {
             return db.NHANVIENs.ToList();
         }
+        public static void them(NHANVIEN nv)
+        {
+            db.NHANVIENs.Add(nv);
+            db.SaveChanges();
+        }
+        public static void sua(NHANVIEN nv)
+        {
+            var dd = db.NHANVIENs.Find(nv.ID);
+            db.Entry(dd).CurrentValues.SetValues(nv);
+            db.SaveChanges();
+        }
         public static List<PHANCONG> load(int id)
         {
-            return db.PHANCONGs.Include(s => s.DOAN).Where(s => s.IDNV == id).ToList();
+            return db.PHANCONGs.Include(s => s.DOAN).Include(s=>s.NHIEMVU).Where(s => s.IDNV == id).ToList();
         }
         public static int demtour(int id, DateTime tu, DateTime den)
         {
@@ -29,10 +40,14 @@ namespace Core.DAO
             db.PHANCONGs.Add(pc);
             db.SaveChanges();
         }
-        public static void sua(PHANCONG pc)
+        
+        public static NHANVIEN findnv(int id)
         {
-            db.Entry(pc).State = EntityState.Modified;
-            db.SaveChanges();
+            return db.NHANVIENs.Find(id);
+        }
+        public static List<NHIEMVU> loadnv()
+        {
+            return db.NHIEMVUs.ToList();
         }
     }
 }

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Thongke";
+    Core.DTO.NHANVIEN nv = ViewBag.nv;
+    DateTime tu = ViewBag.tu;
+    DateTime den = ViewBag.den;
+    int st = ViewBag.st;
+}
+
+<h2>Thống kê</h2>
+<h5>
+    Số tour nhân viên @nv.HOTEN tham gia từ @tu.ToString("dd/MM/yyyy") đến @den.ToString("dd/MM/yyyy") là: @st
+</h5>
+

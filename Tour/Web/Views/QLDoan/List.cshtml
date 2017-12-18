@@ -5,6 +5,7 @@
 }
 
 <h2>Chi tiết đoàn</h2>
+
 <br />
 <table class="table">
     <tr>
@@ -51,6 +52,7 @@
 </table>
 <br />
 <h2>Danh sách khách</h2>
+<h4>Số khách: @Model.Count()</h4>
 @Html.ActionLink("Thêm khách", "Add", new { id = dd.ID })
 <table class="table">
     <tr>
@@ -91,9 +93,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.KHACHHANG.DT)
             </td>
-            <th>
+            <td>
                 @Html.ActionLink("Xoá", "Delete", new { id=item.ID})
-            </th>
+            </td>
         </tr>
     }
 

@@ -1,19 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="tour_dlModelStoreContainer" CdmEntityContainer="TourEntities">
+  <EntityContainerMapping StorageEntityContainer="TourModelStoreContainer" CdmEntityContainer="TourEntities">
     <EntitySetMapping Name="CTDDs">
-      <EntityTypeMapping TypeName="tour_dlModel.CTDD">
+      <EntityTypeMapping TypeName="TourModel.CTDD">
         <MappingFragment StoreEntitySet="CTDD">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TENDIADIEM" ColumnName="TENDIADIEM" />
-          <ScalarProperty Name="IDDD" ColumnName="IDDD" />
           <ScalarProperty Name="MATP" ColumnName="MATP" />
           <ScalarProperty Name="TENTP_NUOC" ColumnName="TENTP_NUOC" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DATTOURs">
-      <EntityTypeMapping TypeName="tour_dlModel.DATTOUR">
+      <EntityTypeMapping TypeName="TourModel.DATTOUR">
         <MappingFragment StoreEntitySet="DATTOUR">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IDKH" ColumnName="IDKH" />
@@ -22,15 +21,16 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DIADIEMs">
-      <EntityTypeMapping TypeName="tour_dlModel.DIADIEM">
+      <EntityTypeMapping TypeName="TourModel.DIADIEM">
         <MappingFragment StoreEntitySet="DIADIEM">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="TENCACDIADIEM" ColumnName="TENCACDIADIEM" />
+          <ScalarProperty Name="IDTOUR" ColumnName="IDTOUR" />
+          <ScalarProperty Name="IDDD" ColumnName="IDDD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DOANs">
-      <EntityTypeMapping TypeName="tour_dlModel.DOAN">
+      <EntityTypeMapping TypeName="TourModel.DOAN">
         <MappingFragment StoreEntitySet="DOAN">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TENDOAN" ColumnName="TENDOAN" />
@@ -43,7 +43,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="KHACHHANGs">
-      <EntityTypeMapping TypeName="tour_dlModel.KHACHHANG">
+      <EntityTypeMapping TypeName="TourModel.KHACHHANG">
         <MappingFragment StoreEntitySet="KHACHHANG">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
@@ -55,7 +55,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NHANVIENs">
-      <EntityTypeMapping TypeName="tour_dlModel.NHANVIEN">
+      <EntityTypeMapping TypeName="TourModel.NHANVIEN">
         <MappingFragment StoreEntitySet="NHANVIEN">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
@@ -65,7 +65,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NHIEMVUs">
-      <EntityTypeMapping TypeName="tour_dlModel.NHIEMVU">
+      <EntityTypeMapping TypeName="TourModel.NHIEMVU">
         <MappingFragment StoreEntitySet="NHIEMVU">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TENNV" ColumnName="TENNV" />
@@ -74,7 +74,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PHANCONGs">
-      <EntityTypeMapping TypeName="tour_dlModel.PHANCONG">
+      <EntityTypeMapping TypeName="TourModel.PHANCONG">
         <MappingFragment StoreEntitySet="PHANCONG">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IDDOAN" ColumnName="IDDOAN" />
@@ -84,11 +84,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TOURs">
-      <EntityTypeMapping TypeName="tour_dlModel.TOUR">
+      <EntityTypeMapping TypeName="TourModel.TOUR">
         <MappingFragment StoreEntitySet="TOUR">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TENTOUR" ColumnName="TENTOUR" />
-          <ScalarProperty Name="IDDIADIEM" ColumnName="IDDIADIEM" />
           <ScalarProperty Name="DACDIEM" ColumnName="DACDIEM" />
           <ScalarProperty Name="GIATOUR" ColumnName="GIATOUR" />
           <ScalarProperty Name="LOAIHINH" ColumnName="LOAIHINH" />
