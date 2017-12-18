@@ -23,7 +23,8 @@ namespace Core.DAO
         }
         public static void sua(KHACHHANG k)
         {
-            db.Entry(k).State = EntityState.Modified;
+            var dd = db.KHACHHANGs.Find(k.ID);
+            db.Entry(dd).CurrentValues.SetValues(k);
             db.SaveChanges();
         }
     }

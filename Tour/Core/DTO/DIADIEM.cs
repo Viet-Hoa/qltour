@@ -14,19 +14,11 @@ namespace Core.DTO
     
     public partial class DIADIEM
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DIADIEM()
-        {
-            this.CTDDs = new HashSet<CTDD>();
-            this.TOURs = new HashSet<TOUR>();
-        }
-    
         public int ID { get; set; }
-        public string TENCACDIADIEM { get; set; }
+        public int IDTOUR { get; set; }
+        public int IDDD { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTDD> CTDDs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TOUR> TOURs { get; set; }
+        public virtual CTDD CTDD { get; set; }
+        public virtual TOUR TOUR { get; set; }
     }
 }

@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c0afa28e79394dd68d5f45abd0cc4456" Name="Diagram1">
-        <EntityTypeShape EntityType="tour_dlModel.CTDD" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.DATTOUR" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.DIADIEM" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.DOAN" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.KHACHHANG" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.NHANVIEN" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.NHIEMVU" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.PHANCONG" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="tour_dlModel.TOUR" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="tour_dlModel.FK__CTDD__IDDD__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="tour_dlModel.FK__DATTOUR__IDDOAN__276EDEB3" ManuallyRouted="false" />
-        <AssociationConnector Association="tour_dlModel.FK__DATTOUR__IDKH__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="tour_dlModel.FK__TOUR__IDDIADIEM__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="tour_dlModel.FK__DOAN__IDTOUR__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="tour_dlModel.FK__PHANCONG__IDDOAN__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="tour_dlModel.FK__PHANCONG__IDNV__5DCAEF64" ManuallyRouted="false" />
-        <AssociationConnector Association="tour_dlModel.FK__PHANCONG__IDNHV__5CD6CB2B" ManuallyRouted="false" />
+      <Diagram DiagramId="93bcf0c88a57415ca4d9153fa07fad5c" Name="Diagram1">
+        <EntityTypeShape EntityType="TourModel.CTDD" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.DATTOUR" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.DIADIEM" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.DOAN" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.KHACHHANG" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.NHANVIEN" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.NHIEMVU" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.PHANCONG" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourModel.TOUR" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="TourModel.FK__DIADIEM__IDDD__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="TourModel.FK__DATTOUR__IDDOAN__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="TourModel.FK__DATTOUR__IDKH__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="TourModel.FK__DIADIEM__IDTOUR__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="TourModel.FK__DOAN__IDTOUR__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="TourModel.FK__PHANCONG__IDDOAN__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="TourModel.FK__PHANCONG__IDNV__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="TourModel.FK__PHANCONG__IDNHV__22AA2996" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

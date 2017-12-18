@@ -31,6 +31,7 @@ namespace Core.BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -43,6 +44,7 @@ namespace Core.BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }

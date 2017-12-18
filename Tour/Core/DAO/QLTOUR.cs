@@ -15,9 +15,9 @@ namespace Core.DAO
         {
             return db.TOURs.ToList();
         }
-        public static List<CTDD> load(int id)
+        public static List<DIADIEM> load(int id)
         {
-            return db.CTDDs.Where(s => s.IDDD == id).ToList();
+            return db.DIADIEMs.Include(s => s.CTDD).Where(s => s.IDTOUR == id).ToList();
         }
         public static int demdoan(int id)
         {

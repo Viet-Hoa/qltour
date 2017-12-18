@@ -13,7 +13,7 @@ namespace Core.DAO
         private static TourEntities db = new TourEntities();
         public static List<DOAN> load()
         {
-            return db.DOANs.ToList();
+            return db.DOANs.Include(s=>s.TOUR).ToList();
         }
         public static List<DATTOUR> load(int id)
         {
@@ -26,7 +26,8 @@ namespace Core.DAO
         }
         public static void sua(DOAN d)
         {
-            db.Entry(d).State = EntityState.Modified;
+            var dd = db.DOANs.Find(d.ID);
+            db.Entry(dd).CurrentValues.SetValues(d);
             db.SaveChanges();
         }
         public static void them(DATTOUR dt)
@@ -34,16 +35,16 @@ namespace Core.DAO
             db.DATTOURs.Add(dt);
             db.SaveChanges();
         }
-        public static void sua(DATTOUR dt)
-        {
-            db.Entry(dt).State = EntityState.Modified;
-            db.SaveChanges();
-        }
+        
         public static void xoa(int id)
         {
             var dt = db.DATTOURs.Find(id);
             db.DATTOURs.Remove(dt);
             db.SaveChanges();
+        }
+        public static DATTOUR finddt(int id)
+        {
+            return db.DATTOURs.Find(id);
         }
         public static DOAN findd(int id)
         {

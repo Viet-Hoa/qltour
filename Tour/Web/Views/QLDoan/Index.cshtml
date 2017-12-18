@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Core.DTO.DOAN>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Đoàn khách</h2>
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tên đoàn")
+        </th>
+        <th>
+            @Html.DisplayName("Tour")
+        </th>
+        <th>
+            @Html.DisplayName("Ngày bắt đầu")
+        </th>
+        <th>
+            @Html.DisplayName("Ngày kết thúc")
+        </th>
+        <th>
+            @Html.DisplayName("Chi tiết nội dung")
+        </th>
+        <th>
+            @Html.DisplayName("Chi phí")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TENDOAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOUR.TENTOUR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYBD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYKT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHITIET)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHIPHI)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.ID })|
+            @Html.ActionLink("Chi tiết", "List", new { id = item.ID })|
+            @Html.ActionLink("Thêm khách", "Add", new { id = item.ID })
+        </td>
+    </tr>
+    }
+
+</table>
+

@@ -15,7 +15,7 @@ namespace Core.BUS
         {
             return DAO.QLTOUR.load();
         }
-        public static List<CTDD> load(int id)
+        public static List<DIADIEM> load(int id)
         {
             return DAO.QLTOUR.load(id);
         }
@@ -42,6 +42,7 @@ namespace Core.BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -54,6 +55,7 @@ namespace Core.BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }

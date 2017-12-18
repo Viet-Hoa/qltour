@@ -27,6 +27,7 @@ namespace Core.BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -39,6 +40,7 @@ namespace Core.BUS
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -51,18 +53,7 @@ namespace Core.BUS
             }
             catch (Exception ex)
             {
-                return 0;
-            }
-        }
-        public static int sua(DATTOUR dt)
-        {
-            try
-            {
-                DAO.QLDOAN.sua(dt);
-                return 1;
-            }
-            catch (Exception ex)
-            {
+                Console.WriteLine(ex.Message);
                 return 0;
             }
         }
@@ -74,6 +65,10 @@ namespace Core.BUS
         {
             return DAO.QLDOAN.findd(id);
         }
-        
+        public static DATTOUR finddt(int id)
+        {
+            return DAO.QLDOAN.finddt(id);
+        }
+
     }
 }

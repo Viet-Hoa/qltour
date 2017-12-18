@@ -21,7 +21,7 @@ namespace Core.DAO
         }
         public static int demtour(int id, DateTime tu, DateTime den)
         {
-            var dt = db.PHANCONGs.Include(s => s.DOAN).Where(s => s.IDNV == id && s.DOAN.NGAYBD >= tu && s.DOAN.NGAYKT <= den).ToList();
+            var dt = db.PHANCONGs.Include(s => s.DOAN).Where(s => s.IDNV == id && s.DOAN.NGAYBD >= tu && s.DOAN.NGAYKT <= den).Distinct().ToList();
             return dt.Count;
         }
         public static void them(PHANCONG pc)

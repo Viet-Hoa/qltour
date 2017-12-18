@@ -18,7 +18,7 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.TOUR = new SelectList(Core.BUS.QLTOUR_BUS.load());
+            ViewBag.IDTOUR = new SelectList(Core.BUS.QLTOUR_BUS.load(), "ID", "TENTOUR");
             return View();
         }
         [HttpPost]
@@ -31,13 +31,13 @@ namespace Web.Controllers
                 if(t==1)
                 return RedirectToAction("Index");
             }
-            ViewBag.TOUR = new SelectList(Core.BUS.QLTOUR_BUS.load());
+            ViewBag.IDTOUR = new SelectList(Core.BUS.QLTOUR_BUS.load(), "ID", "TENTOUR");
             return View();
         }
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            ViewBag.TOUR = new SelectList(Core.BUS.QLTOUR_BUS.load());
+            ViewBag.IDTOUR = new SelectList(Core.BUS.QLTOUR_BUS.load(), "ID", "TENTOUR");
             DOAN d = Core.BUS.QLDOAN_BUS.findd(id);
             return View(d);
         }
@@ -47,24 +47,26 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                int t=Core.BUS.QLDOAN_BUS.sua(d);
+                int t = Core.BUS.QLDOAN_BUS.sua(d);
                 if(t==1)
                 return RedirectToAction("Index");
             }
-            ViewBag.TOUR = new SelectList(Core.BUS.QLTOUR_BUS.load());
+            ViewBag.IDTOUR = new SelectList(Core.BUS.QLTOUR_BUS.load(), "ID", "TENTOUR");
             return View(d);
         }
         public ActionResult List(int id)
         {
+            ViewBag.doan = Core.BUS.QLDOAN_BUS.findd(id);
             List<DATTOUR> k = Core.BUS.QLDOAN_BUS.load(id);
             return View(k);
         }
         [HttpGet]
         public ActionResult Add(int id)
         {
-            ViewBag.KHACH = new SelectList(Core.BUS.QLKHACH_BUS.load());
-            ViewBag.IDDOAN = id;
-            return View();
+            ViewBag.IDKH = new SelectList(Core.BUS.QLKHACH_BUS.load(),"ID","HOTEN");
+            DATTOUR dt = new DATTOUR();
+            dt.IDDOAN = id;
+            return View(dt);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -74,11 +76,31 @@ namespace Web.Controllers
             {
                 int t = Core.BUS.QLDOAN_BUS.them(dt);
                 if (t == 1)
-                    return RedirectToAction("List");
+                    return RedirectToAction("List",new { id = dt.IDDOAN });
             }
-            ViewBag.TOUR = new SelectList(Core.BUS.QLTOUR_BUS.load());
-            ViewBag.IDDOAN = dt.ID;
+            ViewBag.IDKH = new SelectList(Core.BUS.QLKHACH_BUS.load(), "ID", "HOTEN");
             return View(dt);
         }
+        public ActionResult Delete(int id)
+        {            
+            DATTOUR dt = Core.BUS.QLDOAN_BUS.finddt(id);
+            ViewBag.id = dt.IDDOAN;
+            if (dt == null)
+            {
+                return HttpNotFound();
+            }
+            return View(dt);
+        }
+
+        
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            int dt = Core.BUS.QLDOAN_BUS.finddt(id).IDDOAN;
+            Core.BUS.QLDOAN_BUS.xoa(id);
+            return RedirectToAction("List", new { id = dt });
+        }
+
     }
 }

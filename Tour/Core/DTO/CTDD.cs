@@ -14,12 +14,18 @@ namespace Core.DTO
     
     public partial class CTDD
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CTDD()
+        {
+            this.DIADIEMs = new HashSet<DIADIEM>();
+        }
+    
         public int ID { get; set; }
         public string TENDIADIEM { get; set; }
-        public int IDDD { get; set; }
         public string MATP { get; set; }
         public string TENTP_NUOC { get; set; }
     
-        public virtual DIADIEM DIADIEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DIADIEM> DIADIEMs { get; set; }
     }
 }

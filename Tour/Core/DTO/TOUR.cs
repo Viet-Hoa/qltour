@@ -17,17 +17,18 @@ namespace Core.DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TOUR()
         {
+            this.DIADIEMs = new HashSet<DIADIEM>();
             this.DOANs = new HashSet<DOAN>();
         }
     
         public int ID { get; set; }
         public string TENTOUR { get; set; }
-        public int IDDIADIEM { get; set; }
         public string DACDIEM { get; set; }
         public int GIATOUR { get; set; }
         public string LOAIHINH { get; set; }
     
-        public virtual DIADIEM DIADIEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DIADIEM> DIADIEMs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOAN> DOANs { get; set; }
     }

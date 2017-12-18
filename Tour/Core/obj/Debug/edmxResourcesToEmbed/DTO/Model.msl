@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tour_dlModelStoreContainer" CdmEntityContainer="TourEntities">
+    <EntitySetMapping Name="CTDDs">
+      <EntityTypeMapping TypeName="tour_dlModel.CTDD">
+        <MappingFragment StoreEntitySet="CTDD">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TENDIADIEM" ColumnName="TENDIADIEM" />
+          <ScalarProperty Name="IDDD" ColumnName="IDDD" />
+          <ScalarProperty Name="MATP" ColumnName="MATP" />
+          <ScalarProperty Name="TENTP_NUOC" ColumnName="TENTP_NUOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DATTOURs">
+      <EntityTypeMapping TypeName="tour_dlModel.DATTOUR">
+        <MappingFragment StoreEntitySet="DATTOUR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="IDDOAN" ColumnName="IDDOAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIADIEMs">
+      <EntityTypeMapping TypeName="tour_dlModel.DIADIEM">
+        <MappingFragment StoreEntitySet="DIADIEM">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TENCACDIADIEM" ColumnName="TENCACDIADIEM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOANs">
+      <EntityTypeMapping TypeName="tour_dlModel.DOAN">
+        <MappingFragment StoreEntitySet="DOAN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TENDOAN" ColumnName="TENDOAN" />
+          <ScalarProperty Name="IDTOUR" ColumnName="IDTOUR" />
+          <ScalarProperty Name="NGAYBD" ColumnName="NGAYBD" />
+          <ScalarProperty Name="NGAYKT" ColumnName="NGAYKT" />
+          <ScalarProperty Name="CHITIET" ColumnName="CHITIET" />
+          <ScalarProperty Name="CHIPHI" ColumnName="CHIPHI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="tour_dlModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="DT" ColumnName="DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="tour_dlModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="TENDN" ColumnName="TENDN" />
+          <ScalarProperty Name="MK" ColumnName="MK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHIEMVUs">
+      <EntityTypeMapping TypeName="tour_dlModel.NHIEMVU">
+        <MappingFragment StoreEntitySet="NHIEMVU">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+          <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANCONGs">
+      <EntityTypeMapping TypeName="tour_dlModel.PHANCONG">
+        <MappingFragment StoreEntitySet="PHANCONG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDDOAN" ColumnName="IDDOAN" />
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="IDNHV" ColumnName="IDNHV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TOURs">
+      <EntityTypeMapping TypeName="tour_dlModel.TOUR">
+        <MappingFragment StoreEntitySet="TOUR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TENTOUR" ColumnName="TENTOUR" />
+          <ScalarProperty Name="IDDIADIEM" ColumnName="IDDIADIEM" />
+          <ScalarProperty Name="DACDIEM" ColumnName="DACDIEM" />
+          <ScalarProperty Name="GIATOUR" ColumnName="GIATOUR" />
+          <ScalarProperty Name="LOAIHINH" ColumnName="LOAIHINH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

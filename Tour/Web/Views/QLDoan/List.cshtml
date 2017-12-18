@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Core.DTO.DATTOUR>
+@{
+    ViewBag.Title = "List";
+    Core.DTO.DOAN dd = ViewBag.doan;
+}
+
+<h2>Chi tiết đoàn</h2>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tên đoàn")
+        </th>
+        <th>
+            @Html.DisplayName("Tour")
+        </th>
+        <th>
+            @Html.DisplayName("Ngày bắt đầu")
+        </th>
+        <th>
+            @Html.DisplayName("Ngày kết thúc")
+        </th>
+        <th>
+            @Html.DisplayName("Chi tiết nội dung")
+        </th>
+        <th>
+            @Html.DisplayName("Chi phí")
+        </th>
+    </tr>
+    <tr>
+
+        <td>
+            @Html.DisplayFor(item => dd.TENDOAN)
+        </td>
+        <td>
+            @Html.DisplayFor(item => dd.TOUR.TENTOUR)
+        </td>
+        <td>
+            @Html.DisplayFor(item => dd.NGAYBD)
+        </td>
+        <td>
+            @Html.DisplayFor(item => dd.NGAYKT)
+        </td>
+        <td>
+            @Html.DisplayFor(item => dd.CHITIET)
+        </td>
+        <td>
+            @Html.DisplayFor(item => dd.CHIPHI)
+        </td>
+    </tr>
+</table>
+<br />
+<h2>Danh sách khách</h2>
+@Html.ActionLink("Thêm khách", "Add", new { id = dd.ID })
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Họ tên")
+        </th>
+        <th>
+            @Html.DisplayName("CMND")
+        </th>
+        <th>
+            @Html.DisplayName("Giới tính")
+        </th>
+        <th>
+            @Html.DisplayName("Địa chỉ")
+        </th>
+        <th>
+            @Html.DisplayName("Điện thoại")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.HOTEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.CMND)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.GIOITINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.DIACHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.DT)
+            </td>
+            <th>
+                @Html.ActionLink("Xoá", "Delete", new { id=item.ID})
+            </th>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Về", "Index")
+

@@ -1,0 +1,40 @@
+﻿@model Core.DTO.DATTOUR
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Xoá đặt tour</h2>
+
+<h3>Bạn chắc chắn chứ?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên đoàn")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOAN.TENDOAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Khách hàng")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.HOTEN)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Về", "List",new { id=Model.IDDOAN})
+        </div>
+    }
+</div>
