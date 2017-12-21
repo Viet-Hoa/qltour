@@ -15,13 +15,33 @@ namespace Core.DAO
         {
             return db.TOURs.ToList();
         }
+        public static List<CTDD> loaddd()
+        {
+            return db.CTDDs.ToList();
+        }
         public static List<DIADIEM> load(int id)
         {
             return db.DIADIEMs.Include(s => s.CTDD).Where(s => s.IDTOUR == id).ToList();
         }
-        public static int demdoan(int id)
+        public static int id()
         {
-            var d = db.DOANs.Where(s => s.IDTOUR == id).ToList();
+            return db.TOURs.OrderByDescending(s => s.ID).FirstOrDefault().ID;
+        }
+        public static List<int> load(DateTime tu, DateTime den)
+        {
+            var x = db.DOANs.Include(s => s.TOUR).Where(s => s.NGAYBD >= tu && s.NGAYKT <= den).ToList();
+            List<int> t = new List<int>();
+            foreach(var y in x)
+            {
+                int temp = y.IDTOUR;
+                if (!t.Contains(temp))
+                    t.Add(temp);
+            }
+            return t;
+        }
+            public static int demdoan(int id, DateTime tu, DateTime den)
+        {
+            var d = db.DOANs.Where(s => s.IDTOUR == id && s.NGAYBD>=tu && s.NGAYKT<=den).ToList();
             return d.Count;
         }
         public static int chiphi(int id, DateTime tu, DateTime den)
@@ -52,7 +72,8 @@ namespace Core.DAO
         }
         public static void sua(TOUR t)
         {
-            db.Entry(t).State = EntityState.Modified;
+            var dd = db.TOURs.Find(t.ID);
+            db.Entry(dd).CurrentValues.SetValues(t);
             db.SaveChanges();
         }
         public static void them(DIADIEM dd)
@@ -65,6 +86,10 @@ namespace Core.DAO
             var x = db.DIADIEMs.Find(id);
             db.DIADIEMs.Remove(x);
             db.SaveChanges();
+        }
+        public static TOUR find(int id)
+        {
+            return db.TOURs.Find(id);
         }
     }
 }

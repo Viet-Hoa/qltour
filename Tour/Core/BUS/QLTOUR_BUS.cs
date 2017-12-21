@@ -10,29 +10,19 @@ namespace Core.BUS
 {
     public class QLTOUR_BUS
     {
-        private static int chi = 0, thu = 0;
         public static List<TOUR> load()
         {
             return DAO.QLTOUR.load();
+        }
+        public static List<CTDD> loaddd()
+        {
+            return DAO.QLTOUR.loaddd();
         }
         public static List<DIADIEM> load(int id)
         {
             return DAO.QLTOUR.load(id);
         }
-        public static int chiphi(int id, DateTime tu, DateTime den)
-        {
-            chi = DAO.QLTOUR.chiphi(id, tu, den);
-            return chi;
-        }
-        public static int doanhthu(int id, int gia, DateTime tu, DateTime den)
-        {
-            thu = DAO.QLTOUR.doanhthu(id, gia, tu, den);
-            return thu;
-        }
-        public static int tienloi()
-        {
-            return thu - chi;
-        }
+              
         public static int them(TOUR t)
         {
             try
@@ -75,6 +65,33 @@ namespace Core.BUS
         public static void xoa(int id)
         {
             DAO.QLTOUR.xoa(id);
+        }
+        public static List<Thongke> thongke(DateTime tu, DateTime den)
+        {
+            List<Thongke> tour = new List<Thongke>();
+            List<int> idt = DAO.QLTOUR.load(tu, den);
+            foreach(int temp in idt)
+            {
+                TOUR t = new TOUR();
+                t = DAO.QLTOUR.find(temp);
+                int demd = DAO.QLTOUR.demdoan(temp, tu, den);
+                int doanhthu = DAO.QLTOUR.doanhthu(temp, t.GIATOUR, tu, den);
+                int chiphi = DAO.QLTOUR.chiphi(temp, tu, den);
+                int loi = doanhthu - chiphi;
+                Thongke tk = new Thongke();
+                tk.ID = t.ID;
+                tk.TENTOUR = t.TENTOUR;
+                tk.SODOAN = demd;
+                tk.DOANHTHU = doanhthu;
+                tk.CHIPHI = chiphi;
+                tk.LOI = loi;
+                tour.Add(tk);
+            }
+            return tour;
+        }
+        public static int id()
+        {
+            return DAO.QLTOUR.id();
         }
     }
 }

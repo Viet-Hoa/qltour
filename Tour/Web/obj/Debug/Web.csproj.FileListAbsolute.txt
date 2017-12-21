@@ -29,6 +29,8 @@ D:\GitHub\qltour\Tour\Web\bin\Web.dll
 D:\GitHub\qltour\Tour\Web\bin\Web.pdb
 D:\GitHub\qltour\Tour\Web\bin\Antlr3.Runtime.dll
 D:\GitHub\qltour\Tour\Web\bin\Core.dll
+D:\GitHub\qltour\Tour\Web\bin\EntityFramework.dll
+D:\GitHub\qltour\Tour\Web\bin\EntityFramework.SqlServer.dll
 D:\GitHub\qltour\Tour\Web\bin\Microsoft.Web.Infrastructure.dll
 D:\GitHub\qltour\Tour\Web\bin\Newtonsoft.Json.dll
 D:\GitHub\qltour\Tour\Web\bin\System.Web.Helpers.dll
@@ -39,9 +41,10 @@ D:\GitHub\qltour\Tour\Web\bin\System.Web.WebPages.Deployment.dll
 D:\GitHub\qltour\Tour\Web\bin\System.Web.WebPages.dll
 D:\GitHub\qltour\Tour\Web\bin\System.Web.WebPages.Razor.dll
 D:\GitHub\qltour\Tour\Web\bin\WebGrease.dll
-D:\GitHub\qltour\Tour\Web\bin\EntityFramework.dll
 D:\GitHub\qltour\Tour\Web\bin\Core.pdb
 D:\GitHub\qltour\Tour\Web\bin\Core.dll.config
+D:\GitHub\qltour\Tour\Web\bin\EntityFramework.xml
+D:\GitHub\qltour\Tour\Web\bin\EntityFramework.SqlServer.xml
 D:\GitHub\qltour\Tour\Web\bin\System.Web.Helpers.xml
 D:\GitHub\qltour\Tour\Web\bin\System.Web.Mvc.xml
 D:\GitHub\qltour\Tour\Web\bin\System.Web.Optimization.xml
@@ -51,10 +54,7 @@ D:\GitHub\qltour\Tour\Web\bin\System.Web.WebPages.Deployment.xml
 D:\GitHub\qltour\Tour\Web\bin\System.Web.WebPages.Razor.xml
 D:\GitHub\qltour\Tour\Web\bin\Antlr3.Runtime.pdb
 D:\GitHub\qltour\Tour\Web\bin\Newtonsoft.Json.xml
-D:\GitHub\qltour\Tour\Web\bin\EntityFramework.xml
 D:\GitHub\qltour\Tour\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 D:\GitHub\qltour\Tour\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
 D:\GitHub\qltour\Tour\Web\obj\Debug\Web.dll
 D:\GitHub\qltour\Tour\Web\obj\Debug\Web.pdb
-D:\GitHub\qltour\Tour\Web\bin\EntityFramework.SqlServer.dll
-D:\GitHub\qltour\Tour\Web\bin\EntityFramework.SqlServer.xml

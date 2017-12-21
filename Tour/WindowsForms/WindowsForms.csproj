@@ -32,6 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -51,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chitiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chitiet.Designer.cs">
+      <DependentUpon>Chitiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="QL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,12 +73,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Themsuatour.cs">
+    <Compile Include="Suatour.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Themsuatour.Designer.cs">
-      <DependentUpon>Themsuatour.cs</DependentUpon>
+    <Compile Include="Suatour.Designer.cs">
+      <DependentUpon>Suatour.cs</DependentUpon>
     </Compile>
+    <Compile Include="Themtour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Themtour.Designer.cs">
+      <DependentUpon>Themtour.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Chitiet.resx">
+      <DependentUpon>Chitiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -74,6 +98,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QL.resx">
+      <DependentUpon>QL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suatour.resx">
+      <DependentUpon>Suatour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Themtour.resx">
+      <DependentUpon>Themtour.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
