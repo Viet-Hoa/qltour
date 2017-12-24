@@ -167,7 +167,7 @@
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
-            this.gridColumn7.Width = 116;
+            this.gridColumn7.Width = 126;
             // 
             // gridColumn6
             // 
@@ -177,37 +177,43 @@
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 1;
-            this.gridColumn6.Width = 104;
+            this.gridColumn6.Width = 133;
             // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Doanh thu";
+            this.gridColumn9.DisplayFormat.FormatString = "c0";
+            this.gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn9.FieldName = "DOANHTHU";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 2;
-            this.gridColumn9.Width = 125;
+            this.gridColumn9.Width = 128;
             // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Chi phí";
+            this.gridColumn8.DisplayFormat.FormatString = "c0";
+            this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "CHIPHI";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 3;
-            this.gridColumn8.Width = 99;
+            this.gridColumn8.Width = 101;
             // 
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Lợi nhuận";
+            this.gridColumn10.DisplayFormat.FormatString = "c0";
+            this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn10.FieldName = "LOI";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 4;
-            this.gridColumn10.Width = 116;
+            this.gridColumn10.Width = 125;
             // 
             // tabPage1
             // 
@@ -322,6 +328,8 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Giá";
+            this.gridColumn4.DisplayFormat.FormatString = "c0";
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "GIATOUR";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;

@@ -69,18 +69,17 @@ namespace Core.BUS
         public static List<Thongke> thongke(DateTime tu, DateTime den)
         {
             List<Thongke> tour = new List<Thongke>();
-            List<int> idt = DAO.QLTOUR.load(tu, den);
-            foreach(int temp in idt)
+            List<int> lt = QLTOUR.load(tu, den);
+            foreach(var temp in lt)
             {
-                TOUR t = new TOUR();
-                t = DAO.QLTOUR.find(temp);
-                int demd = DAO.QLTOUR.demdoan(temp, tu, den);
-                int doanhthu = DAO.QLTOUR.doanhthu(temp, t.GIATOUR, tu, den);
-                int chiphi = DAO.QLTOUR.chiphi(temp, tu, den);
+                TOUR tt = QLTOUR.find(temp);
+                int demd =  DAO.QLTOUR.demdoan(temp, tu, den);
+                int doanhthu =  DAO.QLTOUR.doanhthu(temp, tt.GIATOUR, tu, den);
+                int chiphi =  DAO.QLTOUR.chiphi(temp, tu, den);
                 int loi = doanhthu - chiphi;
                 Thongke tk = new Thongke();
-                tk.ID = t.ID;
-                tk.TENTOUR = t.TENTOUR;
+               
+                tk.TENTOUR = tt.TENTOUR;
                 tk.SODOAN = demd;
                 tk.DOANHTHU = doanhthu;
                 tk.CHIPHI = chiphi;

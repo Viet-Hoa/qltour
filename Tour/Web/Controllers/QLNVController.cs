@@ -57,13 +57,30 @@ namespace Web.Controllers
             List<PHANCONG> k = Core.BUS.QLNV_BUS.load(id);
             return View(k);
         }
-        public ActionResult demtour(int ma,DateTime tu,DateTime den)
+        [HttpGet]
+        public ActionResult Thongke()
         {
-            ViewBag.nv = QLNV_BUS.findnv(ma);
+            ViewBag.ID = new SelectList(Core.BUS.QLNV_BUS.load(), "ID", "HOTEN");
+            ViewBag.tu = DateTime.Today;
+            ViewBag.den = DateTime.Today;
+            ViewBag.st = 0;
+            NHANVIEN x = new NHANVIEN();
+                x.ID = 0;
+            x.HOTEN = "Họ tên";
+            x.TENDN = "x";
+            x.MK = "x";
+            ViewBag.nv = x;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Thongke(int ID,DateTime tu,DateTime den)
+        {
+            ViewBag.nv = QLNV_BUS.findnv(ID);
             ViewBag.tu = tu;
             ViewBag.den = den;
-            ViewBag.st = Core.BUS.QLNV_BUS.demtour(ma, tu, den);
-            return RedirectToAction("Thongke");
+            ViewBag.st = Core.BUS.QLNV_BUS.demtour(ID, tu, den);
+            ViewBag.ID = new SelectList(Core.BUS.QLNV_BUS.load(), "ID", "HOTEN");
+            return View();
         }
         [HttpGet]
         public ActionResult Add(int id)

@@ -24,6 +24,7 @@ D:\GitHub\Tour\Web\bin\Newtonsoft.Json.xml
 D:\GitHub\Tour\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 D:\GitHub\Tour\Web\obj\Debug\Web.dll
 D:\GitHub\Tour\Web\obj\Debug\Web.pdb
+D:\GitHub\qltour\Tour\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
 D:\GitHub\qltour\Tour\Web\bin\Web.dll.config
 D:\GitHub\qltour\Tour\Web\bin\Web.dll
 D:\GitHub\qltour\Tour\Web\bin\Web.pdb
@@ -55,6 +56,5 @@ D:\GitHub\qltour\Tour\Web\bin\System.Web.WebPages.Razor.xml
 D:\GitHub\qltour\Tour\Web\bin\Antlr3.Runtime.pdb
 D:\GitHub\qltour\Tour\Web\bin\Newtonsoft.Json.xml
 D:\GitHub\qltour\Tour\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
-D:\GitHub\qltour\Tour\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
 D:\GitHub\qltour\Tour\Web\obj\Debug\Web.dll
 D:\GitHub\qltour\Tour\Web\obj\Debug\Web.pdb

@@ -1,4 +1,12 @@
 D:\GitHub\Tour\WindowsForms\bin\Debug\WindowsForms.exe.config
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.Chitiet.resources
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.Properties.Resources.resources
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.QL.resources
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.Suatour.resources
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.Themtour.resources
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.csproj.GenerateResource.Cache
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.exe.licenses
+D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.csproj.CoreCompileInputs.cache
 D:\GitHub\qltour\Tour\WindowsForms\bin\Debug\WindowsForms.exe.config
 D:\GitHub\qltour\Tour\WindowsForms\bin\Debug\WindowsForms.exe
 D:\GitHub\qltour\Tour\WindowsForms\bin\Debug\WindowsForms.pdb
@@ -88,12 +96,5 @@ D:\GitHub\qltour\Tour\WindowsForms\bin\Debug\es\DevExpress.Office.v16.2.Core.res
 D:\GitHub\qltour\Tour\WindowsForms\bin\Debug\ja\DevExpress.Office.v16.2.Core.resources.dll
 D:\GitHub\qltour\Tour\WindowsForms\bin\Debug\ru\DevExpress.Office.v16.2.Core.resources.dll
 D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.csprojResolveAssemblyReference.cache
-D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.Chitiet.resources
-D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.Properties.Resources.resources
-D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.QL.resources
-D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.csproj.GenerateResource.Cache
-D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.exe.licenses
-D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.csproj.CoreCompileInputs.cache
 D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.exe
 D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.pdb
-D:\GitHub\qltour\Tour\WindowsForms\obj\Debug\WindowsForms.Themtour.resources

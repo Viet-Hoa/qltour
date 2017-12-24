@@ -33,6 +33,7 @@ namespace WindowsForms
             var d = dd.Where(s=>s.ID==id).FirstOrDefault();
             ctdd.Add(d);
             gridControl1.DataSource = ctdd;
+            gridControl1.RefreshDataSource();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -28,12 +28,12 @@ namespace Core.DAO
         }
         public static List<PHANCONG> load(int id)
         {
-            return db.PHANCONGs.Include(s => s.DOAN).Include(s=>s.NHIEMVU).Where(s => s.IDNV == id).ToList();
+            return db.PHANCONGs.Include(s => s.DOAN).Include(s=>s.NHIEMVU).Where(s => s.IDNV == id).OrderByDescending(s=>s.ID).ToList();
         }
         public static int demtour(int id, DateTime tu, DateTime den)
         {
-            var dt = db.PHANCONGs.Include(s => s.DOAN).Where(s => s.IDNV == id && s.DOAN.NGAYBD >= tu && s.DOAN.NGAYKT <= den).Distinct().ToList();
-            return dt.Count;
+            var dt = db.PHANCONGs.Include(s => s.DOAN).Where(s => s.IDNV == id && s.DOAN.NGAYBD >= tu && s.DOAN.NGAYKT <= den).Select(s => s.IDDOAN).Distinct();
+            return dt.Count();
         }
         public static void them(PHANCONG pc)
         {

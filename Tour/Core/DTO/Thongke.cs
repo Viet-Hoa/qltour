@@ -8,7 +8,6 @@ namespace Core.DTO
 {
     public class Thongke
     {
-        public int ID { get; set; }
         public string TENTOUR { get; set; }
         public int SODOAN { get; set; }
         public int DOANHTHU { get; set; }

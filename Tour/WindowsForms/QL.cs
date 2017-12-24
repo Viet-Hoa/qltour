@@ -31,7 +31,7 @@ namespace WindowsForms
             t.ID = int.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").ToString());
             t.TENTOUR = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TENTOUR").ToString();
             t.DACDIEM = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DACDIEM").ToString();
-            t.GIATOUR = int.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MASP").ToString());
+            t.GIATOUR = int.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GIATOUR").ToString());
             t.LOAIHINH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "LOAIHINH").ToString();
             button2.Enabled = true;
             button3.Enabled = true;
@@ -43,7 +43,9 @@ namespace WindowsForms
             using (var ts = new Themtour())
             {
                 ts.set();
-                ts.ShowDialog();
+                var r = ts.ShowDialog();
+                if (r == DialogResult.OK)
+                    load();
             }
         }
 
@@ -52,7 +54,9 @@ namespace WindowsForms
             using (var ts = new Suatour())
             {
                 ts.set(tt);
-                ts.ShowDialog();
+                var r = ts.ShowDialog();
+                if (r == DialogResult.OK)
+                    load();
             }
         }
 
@@ -60,14 +64,18 @@ namespace WindowsForms
         {
             using (var ct = new Chitiet())
             {
-
+                ct.set(tt);
                 ct.ShowDialog();
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            gridControl2.DataSource = QLTOUR_BUS.thongke(dateTimePicker1.Value.Date, dateTimePicker2.Value.Date);
+            var x = QLTOUR_BUS.thongke(dateTimePicker1.Value.Date, dateTimePicker2.Value.Date);
+            if (!x.Any())
+                MessageBox.Show("Không có dữ liệu");
+            gridControl2.DataSource = x;
+            gridControl2.RefreshDataSource();
         }
     }
 }

@@ -27,18 +27,7 @@ namespace Core.DAO
         {
             return db.TOURs.OrderByDescending(s => s.ID).FirstOrDefault().ID;
         }
-        public static List<int> load(DateTime tu, DateTime den)
-        {
-            var x = db.DOANs.Include(s => s.TOUR).Where(s => s.NGAYBD >= tu && s.NGAYKT <= den).ToList();
-            List<int> t = new List<int>();
-            foreach(var y in x)
-            {
-                int temp = y.IDTOUR;
-                if (!t.Contains(temp))
-                    t.Add(temp);
-            }
-            return t;
-        }
+        
             public static int demdoan(int id, DateTime tu, DateTime den)
         {
             var d = db.DOANs.Where(s => s.IDTOUR == id && s.NGAYBD>=tu && s.NGAYKT<=den).ToList();
@@ -90,6 +79,11 @@ namespace Core.DAO
         public static TOUR find(int id)
         {
             return db.TOURs.Find(id);
+        }
+        public static List<int> load(DateTime tu, DateTime den)
+        {
+            var x = db.DOANs.Where(s => s.NGAYBD >= tu && s.NGAYKT <= den).Select(s => s.IDTOUR).Distinct();
+            return x.ToList();
         }
     }
 }
