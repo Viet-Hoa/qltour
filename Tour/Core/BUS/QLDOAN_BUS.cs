@@ -69,6 +69,23 @@ namespace Core.BUS
         {
             return DAO.QLDOAN.finddt(id);
         }
-
+        public static List<CTCHIP> loacp(int id)
+        {
+            return QLDOAN.loadcp(id);
+        }
+        public static int them(CTCHIP cp)
+        {
+            try
+            {
+                DAO.QLDOAN.them(cp);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
+        
     }
 }

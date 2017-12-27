@@ -32,7 +32,11 @@ namespace WindowsForms
                 ct = x.CTDD;
                 ctdd.Add(ct);
             }
+            List<GIATOUR> gia = QLTOUR_BUS.loadg(t.ID);
             gridControl1.DataSource = ctdd;
+            gridControl2.DataSource = gia;
         }
+
+        
     }
 }

@@ -57,6 +57,7 @@ namespace Web.Controllers
         public ActionResult List(int id)
         {
             ViewBag.doan = Core.BUS.QLDOAN_BUS.findd(id);
+            ViewBag.cp = QLDOAN_BUS.loacp(id);
             List<DATTOUR> k = Core.BUS.QLDOAN_BUS.load(id);
             return View(k);
         }
@@ -101,6 +102,24 @@ namespace Web.Controllers
             Core.BUS.QLDOAN_BUS.xoa(id);
             return RedirectToAction("List", new { id = dt });
         }
-
+        [HttpGet]
+        public ActionResult Addg(int id)
+        {
+            CTCHIP dt = new CTCHIP();
+            dt.IDDOAN = id;
+            return View(dt);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Addg([Bind(Include = "ID,IDDOAN,TENCHIPHI,SOTIEN,NGAY")] CTCHIP dt)
+        {
+            if (ModelState.IsValid)
+            {
+                int t = Core.BUS.QLDOAN_BUS.them(dt);
+                if (t == 1)
+                    return RedirectToAction("List", new { id = dt.IDDOAN });
+            }
+            return View(dt);
+        }
     }
 }

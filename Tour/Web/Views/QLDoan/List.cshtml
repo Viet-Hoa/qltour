@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "List";
     Core.DTO.DOAN dd = ViewBag.doan;
+    List<Core.DTO.CTCHIP> lct = ViewBag.cp;
 }
 
 <h2>Chi tiết đoàn</h2>
@@ -49,6 +50,36 @@
             @Html.DisplayFor(item => dd.CHIPHI) đ
         </td>
     </tr>
+</table>
+<br />
+<h2>Chi phí</h2>
+@Html.ActionLink("Thêm chi phí", "Addg", new { id=dd.ID})
+<table class="table">
+    <tr>
+        <th>
+            Tên chi phí
+        </th>
+        <th>
+            Ngày
+        </th>
+        <th>
+            Số tiền
+        </th>
+    </tr>
+    @foreach(Core.DTO.CTCHIP ct in lct)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => ct.TENCHIPHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => ct.NGAY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => ct.SOTIEN) đ
+        </td>
+    </tr>
+    }
 </table>
 <br />
 <h2>Danh sách khách</h2>

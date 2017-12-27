@@ -41,7 +41,10 @@ namespace Core.BUS
                 return 0;
             }
         }
-        
+        public static KHACHHANG find(int id)
+        {
+            return DAO.QLKHACH.find(id);
+        }
         
     }
 }

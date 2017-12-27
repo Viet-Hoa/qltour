@@ -19,6 +19,7 @@ namespace Core.DTO
         {
             this.DATTOURs = new HashSet<DATTOUR>();
             this.PHANCONGs = new HashSet<PHANCONG>();
+            this.CTCHIPs = new HashSet<CTCHIP>();
         }
     
         public int ID { get; set; }
@@ -34,5 +35,7 @@ namespace Core.DTO
         public virtual TOUR TOUR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHANCONG> PHANCONGs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTCHIP> CTCHIPs { get; set; }
     }
 }

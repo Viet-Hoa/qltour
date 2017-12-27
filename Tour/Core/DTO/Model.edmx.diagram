@@ -22,6 +22,10 @@
         <AssociationConnector Association="TourModel.FK__PHANCONG__IDDOAN__21B6055D" ManuallyRouted="false" />
         <AssociationConnector Association="TourModel.FK__PHANCONG__IDNV__239E4DCF" ManuallyRouted="false" />
         <AssociationConnector Association="TourModel.FK__PHANCONG__IDNHV__22AA2996" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TourModel.CTCHIP" Width="1.5" PointX="5.25" PointY="11" />
+        <EntityTypeShape EntityType="TourModel.GIATOUR" Width="1.5" PointX="3" PointY="18.75" />
+        <AssociationConnector Association="TourModel.FK__CTCHIP__IDDOAN__3C69FB99" />
+        <AssociationConnector Association="TourModel.FK__GIATOUR__IDTOUR__38996AB5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

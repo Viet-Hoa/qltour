@@ -27,5 +27,9 @@ namespace Core.DAO
             db.Entry(dd).CurrentValues.SetValues(k);
             db.SaveChanges();
         }
+        public static KHACHHANG find(int id)
+        {
+            return db.KHACHHANGs.Find(id);
+        }
     }
 }

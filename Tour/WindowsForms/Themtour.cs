@@ -16,6 +16,7 @@ namespace WindowsForms
     {
         private List<CTDD> dd = new List<CTDD>();//read only
         private List<CTDD> ctdd = new List<CTDD>();
+        private List<GIATOUR> gia = new List<GIATOUR>();
         public Themtour()
         {
             InitializeComponent();
@@ -58,7 +59,38 @@ namespace WindowsForms
                     if (t == 0)
                         MessageBox.Show("Lỗi thêm địa điểm");
                 }
+                foreach(var x in gia)
+                {
+                    x.IDTOUR = id;
+                    t = QLTOUR_BUS.them(x);
+                    if (t == 0)
+                        MessageBox.Show("Lỗi thêm giá");
+                }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            GIATOUR g = new GIATOUR();
+            g.GIA = int.Parse(textBox2.Text);
+            g.THANGBD = comboBox2.SelectedItem.ToString();
+            g.THANGKT = comboBox3.SelectedItem.ToString();
+            int now = DateTime.Now.Month,
+            bd = int.Parse(g.THANGBD),
+            kt = int.Parse(g.THANGKT);
+            if (bd>kt)
+                kt += 12;
+            if (bd <= now && now < kt)
+            {
+                g.current = true;
+                textBox4.Text = textBox2.Text;
+            }
+            else
+                g.current = false;
+            gia.Add(g);
+            textBox2.Text = "";
+            gridControl2.DataSource = gia;
+            gridControl2.RefreshDataSource();
         }
     }
 }

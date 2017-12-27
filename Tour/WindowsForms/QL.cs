@@ -77,5 +77,11 @@ namespace WindowsForms
             gridControl2.DataSource = x;
             gridControl2.RefreshDataSource();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            gridControl2.RefreshDataSource();
+            rf_BUS.rf();
+        }
     }
 }

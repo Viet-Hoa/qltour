@@ -94,5 +94,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CTCHIPs">
+      <EntityTypeMapping TypeName="TourModel.CTCHIP">
+        <MappingFragment StoreEntitySet="CTCHIP">
+          <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+          <ScalarProperty Name="SOTIEN" ColumnName="SOTIEN" />
+          <ScalarProperty Name="TENCHIPHI" ColumnName="TENCHIPHI" />
+          <ScalarProperty Name="IDDOAN" ColumnName="IDDOAN" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIATOURs">
+      <EntityTypeMapping TypeName="TourModel.GIATOUR">
+        <MappingFragment StoreEntitySet="GIATOUR">
+          <ScalarProperty Name="current" ColumnName="current" />
+          <ScalarProperty Name="THANGKT" ColumnName="THANGKT" />
+          <ScalarProperty Name="THANGBD" ColumnName="THANGBD" />
+          <ScalarProperty Name="IDTOUR" ColumnName="IDTOUR" />
+          <ScalarProperty Name="GIA" ColumnName="GIA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

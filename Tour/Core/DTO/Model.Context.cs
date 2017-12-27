@@ -34,5 +34,7 @@ namespace Core.DTO
         public virtual DbSet<NHIEMVU> NHIEMVUs { get; set; }
         public virtual DbSet<PHANCONG> PHANCONGs { get; set; }
         public virtual DbSet<TOUR> TOURs { get; set; }
+        public virtual DbSet<CTCHIP> CTCHIPs { get; set; }
+        public virtual DbSet<GIATOUR> GIATOURs { get; set; }
     }
 }

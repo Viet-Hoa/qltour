@@ -63,10 +63,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\QLDD_BUS .cs" />
+    <Compile Include="BUS\QLNVU_BUS.cs" />
     <Compile Include="BUS\QLKHACH_BUS.cs" />
     <Compile Include="BUS\QLDOAN_BUS.cs" />
     <Compile Include="BUS\QLNV_BUS.cs" />
     <Compile Include="BUS\QLTOUR_BUS.cs" />
+    <Compile Include="BUS\rf_BUS.cs" />
+    <Compile Include="DAO\QLDD.cs" />
+    <Compile Include="DAO\QLNVU.cs" />
+    <Compile Include="DAO\rfconnect.cs" />
+    <Compile Include="DTO\CTCHIP.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="DTO\CTDD.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -81,6 +90,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\DOAN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\GIATOUR.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\KHACHHANG.cs">

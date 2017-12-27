@@ -44,6 +44,7 @@
     <NavigationProperty Name="DATTOURs" Relationship="Self.FK__DATTOUR__IDDOAN__1ED998B2" FromRole="DOAN" ToRole="DATTOUR" />
     <NavigationProperty Name="TOUR" Relationship="Self.FK__DOAN__IDTOUR__20C1E124" FromRole="DOAN" ToRole="TOUR" />
     <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__IDDOAN__21B6055D" FromRole="DOAN" ToRole="PHANCONG" />
+    <NavigationProperty Name="CTCHIPs" Relationship="TourModel.FK__CTCHIP__IDDOAN__3C69FB99" FromRole="DOAN" ToRole="CTCHIP" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
@@ -99,6 +100,7 @@
     <Property Name="LOAIHINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="DIADIEMs" Relationship="Self.FK__DIADIEM__IDTOUR__31EC6D26" FromRole="TOUR" ToRole="DIADIEM" />
     <NavigationProperty Name="DOANs" Relationship="Self.FK__DOAN__IDTOUR__20C1E124" FromRole="TOUR" ToRole="DOAN" />
+    <NavigationProperty Name="GIATOURs" Relationship="TourModel.FK__GIATOUR__IDTOUR__38996AB5" FromRole="TOUR" ToRole="GIATOUR" />
   </EntityType>
   <Association Name="FK__DIADIEM__IDDD__30F848ED">
     <End Role="CTDD" Type="Self.CTDD" Multiplicity="1" />
@@ -238,5 +240,62 @@
       <End Role="NHIEMVU" EntitySet="NHIEMVUs" />
       <End Role="PHANCONG" EntitySet="PHANCONGs" />
     </AssociationSet>
+    <EntitySet Name="CTCHIPs" EntityType="TourModel.CTCHIP" />
+    <EntitySet Name="GIATOURs" EntityType="TourModel.GIATOUR" />
+    <AssociationSet Name="FK__CTCHIP__IDDOAN__3C69FB99" Association="TourModel.FK__CTCHIP__IDDOAN__3C69FB99">
+      <End Role="DOAN" EntitySet="DOANs" />
+      <End Role="CTCHIP" EntitySet="CTCHIPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GIATOUR__IDTOUR__38996AB5" Association="TourModel.FK__GIATOUR__IDTOUR__38996AB5">
+      <End Role="TOUR" EntitySet="TOURs" />
+      <End Role="GIATOUR" EntitySet="GIATOURs" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="CTCHIP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDDOAN" Type="Int32" Nullable="false" />
+    <Property Name="TENCHIPHI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SOTIEN" Type="Int32" Nullable="false" />
+    <Property Name="NGAY" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="DOAN" Relationship="TourModel.FK__CTCHIP__IDDOAN__3C69FB99" FromRole="CTCHIP" ToRole="DOAN" />
+  </EntityType>
+  <EntityType Name="GIATOUR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GIA" Type="Int32" Nullable="false" />
+    <Property Name="IDTOUR" Type="Int32" Nullable="false" />
+    <Property Name="THANGBD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="THANGKT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="current" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TOUR" Relationship="TourModel.FK__GIATOUR__IDTOUR__38996AB5" FromRole="GIATOUR" ToRole="TOUR" />
+  </EntityType>
+  <Association Name="FK__CTCHIP__IDDOAN__3C69FB99">
+    <End Type="TourModel.DOAN" Role="DOAN" Multiplicity="1" />
+    <End Type="TourModel.CTCHIP" Role="CTCHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOAN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CTCHIP">
+        <PropertyRef Name="IDDOAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GIATOUR__IDTOUR__38996AB5">
+    <End Type="TourModel.TOUR" Role="TOUR" Multiplicity="1" />
+    <End Type="TourModel.GIATOUR" Role="GIATOUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOUR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIATOUR">
+        <PropertyRef Name="IDTOUR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

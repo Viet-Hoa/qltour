@@ -85,5 +85,25 @@ namespace Core.DAO
             var x = db.DOANs.Where(s => s.NGAYBD >= tu && s.NGAYKT <= den).Select(s => s.IDTOUR).Distinct();
             return x.ToList();
         }
+        public static List<GIATOUR> loadg(int id)
+        {
+            return db.GIATOURs.Where(s => s.IDTOUR == id).ToList();
+        }
+        public static void them(GIATOUR g)
+        {
+            db.GIATOURs.Add(g);
+            db.SaveChanges();
+        }
+        public static void sua(int id)
+        {
+            var x = db.GIATOURs.Find(id);
+            if (x.current)
+                x.current = false;
+            else
+                x.current = true;
+            db.Entry(x).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
     }
 }

@@ -119,6 +119,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CTDDController.cs" />
+    <Compile Include="Controllers\KHACHHANGController.cs" />
+    <Compile Include="Controllers\NHIEMVUController.cs" />
     <Compile Include="Controllers\QLNVController.cs" />
     <Compile Include="Controllers\QLDoanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -217,6 +220,16 @@
     <Content Include="Views\QLNV\Add.cshtml" />
     <Content Include="Views\QLNV\Edit.cshtml" />
     <Content Include="Views\QLNV\Thongke.cshtml" />
+    <Content Include="Views\CTDD\Index.cshtml" />
+    <Content Include="Views\CTDD\Create.cshtml" />
+    <Content Include="Views\CTDD\Edit.cshtml" />
+    <Content Include="Views\KHACHHANG\Create.cshtml" />
+    <Content Include="Views\KHACHHANG\Edit.cshtml" />
+    <Content Include="Views\KHACHHANG\Index.cshtml" />
+    <Content Include="Views\NHIEMVU\Create.cshtml" />
+    <Content Include="Views\NHIEMVU\Edit.cshtml" />
+    <Content Include="Views\NHIEMVU\Index.cshtml" />
+    <Content Include="Views\QLDoan\Addg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

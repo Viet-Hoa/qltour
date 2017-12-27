@@ -92,5 +92,36 @@ namespace Core.BUS
         {
             return DAO.QLTOUR.id();
         }
+        public static List<GIATOUR> loadg(int id)
+        {
+            return QLTOUR.loadg(id);
+        }
+        public static int them(GIATOUR g)
+        {
+            try
+            {
+                QLTOUR.them(g);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+
+        }
+        public static int sua(int id)
+        {
+            try
+            {
+                QLTOUR.sua(id);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
     }
 }

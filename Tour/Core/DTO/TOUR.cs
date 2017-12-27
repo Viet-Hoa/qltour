@@ -19,6 +19,7 @@ namespace Core.DTO
         {
             this.DIADIEMs = new HashSet<DIADIEM>();
             this.DOANs = new HashSet<DOAN>();
+            this.GIATOURs = new HashSet<GIATOUR>();
         }
     
         public int ID { get; set; }
@@ -31,5 +32,7 @@ namespace Core.DTO
         public virtual ICollection<DIADIEM> DIADIEMs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOAN> DOANs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GIATOUR> GIATOURs { get; set; }
     }
 }

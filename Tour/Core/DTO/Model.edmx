@@ -4,7 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TourModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TourModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTCHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDOAN" Type="int" Nullable="false" />
+          <Property Name="TENCHIPHI" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SOTIEN" Type="int" Nullable="false" />
+          <Property Name="NGAY" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="CTDD">
           <Key>
             <PropertyRef Name="ID" />
@@ -41,6 +51,17 @@
           <Property Name="NGAYKT" Type="date" Nullable="false" />
           <Property Name="CHITIET" Type="text" Nullable="false" />
           <Property Name="CHIPHI" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GIATOUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GIA" Type="int" Nullable="false" />
+          <Property Name="IDTOUR" Type="int" Nullable="false" />
+          <Property Name="THANGBD" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="THANGKT" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="current" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -89,6 +110,18 @@
           <Property Name="GIATOUR" Type="int" Nullable="false" />
           <Property Name="LOAIHINH" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <Association Name="FK__CTCHIP__IDDOAN__3C69FB99">
+          <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
+          <End Role="CTCHIP" Type="Self.CTCHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CTCHIP">
+              <PropertyRef Name="IDDOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__DATTOUR__IDDOAN__1ED998B2">
           <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
           <End Role="DATTOUR" Type="Self.DATTOUR" Multiplicity="*" />
@@ -149,6 +182,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__GIATOUR__IDTOUR__38996AB5">
+          <End Role="TOUR" Type="Self.TOUR" Multiplicity="1" />
+          <End Role="GIATOUR" Type="Self.GIATOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GIATOUR">
+              <PropertyRef Name="IDTOUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__PHANCONG__IDDOAN__21B6055D">
           <End Role="DOAN" Type="Self.DOAN" Multiplicity="1" />
           <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
@@ -186,15 +231,21 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TourModelStoreContainer">
+          <EntitySet Name="CTCHIP" EntityType="Self.CTCHIP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTDD" EntityType="Self.CTDD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DATTOUR" EntityType="Self.DATTOUR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DIADIEM" EntityType="Self.DIADIEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DOAN" EntityType="Self.DOAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIATOUR" EntityType="Self.GIATOUR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHIEMVU" EntityType="Self.NHIEMVU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHANCONG" EntityType="Self.PHANCONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TOUR" EntityType="Self.TOUR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CTCHIP__IDDOAN__3C69FB99" Association="Self.FK__CTCHIP__IDDOAN__3C69FB99">
+            <End Role="DOAN" EntitySet="DOAN" />
+            <End Role="CTCHIP" EntitySet="CTCHIP" />
+          </AssociationSet>
           <AssociationSet Name="FK__DATTOUR__IDDOAN__1ED998B2" Association="Self.FK__DATTOUR__IDDOAN__1ED998B2">
             <End Role="DOAN" EntitySet="DOAN" />
             <End Role="DATTOUR" EntitySet="DATTOUR" />
@@ -215,6 +266,10 @@
             <End Role="TOUR" EntitySet="TOUR" />
             <End Role="DOAN" EntitySet="DOAN" />
           </AssociationSet>
+          <AssociationSet Name="FK__GIATOUR__IDTOUR__38996AB5" Association="Self.FK__GIATOUR__IDTOUR__38996AB5">
+            <End Role="TOUR" EntitySet="TOUR" />
+            <End Role="GIATOUR" EntitySet="GIATOUR" />
+          </AssociationSet>
           <AssociationSet Name="FK__PHANCONG__IDDOAN__21B6055D" Association="Self.FK__PHANCONG__IDDOAN__21B6055D">
             <End Role="DOAN" EntitySet="DOAN" />
             <End Role="PHANCONG" EntitySet="PHANCONG" />
@@ -228,8 +283,7 @@
             <End Role="PHANCONG" EntitySet="PHANCONG" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TourModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -277,6 +331,7 @@
           <NavigationProperty Name="DATTOURs" Relationship="Self.FK__DATTOUR__IDDOAN__1ED998B2" FromRole="DOAN" ToRole="DATTOUR" />
           <NavigationProperty Name="TOUR" Relationship="Self.FK__DOAN__IDTOUR__20C1E124" FromRole="DOAN" ToRole="TOUR" />
           <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__IDDOAN__21B6055D" FromRole="DOAN" ToRole="PHANCONG" />
+          <NavigationProperty Name="CTCHIPs" Relationship="TourModel.FK__CTCHIP__IDDOAN__3C69FB99" FromRole="DOAN" ToRole="CTCHIP" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
@@ -332,6 +387,7 @@
           <Property Name="LOAIHINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DIADIEMs" Relationship="Self.FK__DIADIEM__IDTOUR__31EC6D26" FromRole="TOUR" ToRole="DIADIEM" />
           <NavigationProperty Name="DOANs" Relationship="Self.FK__DOAN__IDTOUR__20C1E124" FromRole="TOUR" ToRole="DOAN" />
+          <NavigationProperty Name="GIATOURs" Relationship="TourModel.FK__GIATOUR__IDTOUR__38996AB5" FromRole="TOUR" ToRole="GIATOUR" />
         </EntityType>
         <Association Name="FK__DIADIEM__IDDD__30F848ED">
           <End Role="CTDD" Type="Self.CTDD" Multiplicity="1" />
@@ -471,7 +527,64 @@
             <End Role="NHIEMVU" EntitySet="NHIEMVUs" />
             <End Role="PHANCONG" EntitySet="PHANCONGs" />
           </AssociationSet>
+          <EntitySet Name="CTCHIPs" EntityType="TourModel.CTCHIP" />
+          <EntitySet Name="GIATOURs" EntityType="TourModel.GIATOUR" />
+          <AssociationSet Name="FK__CTCHIP__IDDOAN__3C69FB99" Association="TourModel.FK__CTCHIP__IDDOAN__3C69FB99">
+            <End Role="DOAN" EntitySet="DOANs" />
+            <End Role="CTCHIP" EntitySet="CTCHIPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GIATOUR__IDTOUR__38996AB5" Association="TourModel.FK__GIATOUR__IDTOUR__38996AB5">
+            <End Role="TOUR" EntitySet="TOURs" />
+            <End Role="GIATOUR" EntitySet="GIATOURs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CTCHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDOAN" Type="Int32" Nullable="false" />
+          <Property Name="TENCHIPHI" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOTIEN" Type="Int32" Nullable="false" />
+          <Property Name="NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="DOAN" Relationship="TourModel.FK__CTCHIP__IDDOAN__3C69FB99" FromRole="CTCHIP" ToRole="DOAN" />
+        </EntityType>
+        <EntityType Name="GIATOUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GIA" Type="Int32" Nullable="false" />
+          <Property Name="IDTOUR" Type="Int32" Nullable="false" />
+          <Property Name="THANGBD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="THANGKT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="current" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TOUR" Relationship="TourModel.FK__GIATOUR__IDTOUR__38996AB5" FromRole="GIATOUR" ToRole="TOUR" />
+        </EntityType>
+        <Association Name="FK__CTCHIP__IDDOAN__3C69FB99">
+          <End Type="TourModel.DOAN" Role="DOAN" Multiplicity="1" />
+          <End Type="TourModel.CTCHIP" Role="CTCHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CTCHIP">
+              <PropertyRef Name="IDDOAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GIATOUR__IDTOUR__38996AB5">
+          <End Type="TourModel.TOUR" Role="TOUR" Multiplicity="1" />
+          <End Type="TourModel.GIATOUR" Role="GIATOUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GIATOUR">
+              <PropertyRef Name="IDTOUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -568,6 +681,29 @@
                 <ScalarProperty Name="DACDIEM" ColumnName="DACDIEM" />
                 <ScalarProperty Name="GIATOUR" ColumnName="GIATOUR" />
                 <ScalarProperty Name="LOAIHINH" ColumnName="LOAIHINH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTCHIPs">
+            <EntityTypeMapping TypeName="TourModel.CTCHIP">
+              <MappingFragment StoreEntitySet="CTCHIP">
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="SOTIEN" ColumnName="SOTIEN" />
+                <ScalarProperty Name="TENCHIPHI" ColumnName="TENCHIPHI" />
+                <ScalarProperty Name="IDDOAN" ColumnName="IDDOAN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIATOURs">
+            <EntityTypeMapping TypeName="TourModel.GIATOUR">
+              <MappingFragment StoreEntitySet="GIATOUR">
+                <ScalarProperty Name="current" ColumnName="current" />
+                <ScalarProperty Name="THANGKT" ColumnName="THANGKT" />
+                <ScalarProperty Name="THANGBD" ColumnName="THANGBD" />
+                <ScalarProperty Name="IDTOUR" ColumnName="IDTOUR" />
+                <ScalarProperty Name="GIA" ColumnName="GIA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
